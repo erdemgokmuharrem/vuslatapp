@@ -1,30 +1,99 @@
 {
   "expo": {
-    "name": "zmatik-app",
+    "name": "Vuslat",
     "slug": "zmatik-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2E7D32"
     },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.zmatik.islamicapp",
+      "buildNumber": "1",
+      "icon": "./assets/icon.png",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Bu uygulama yakındaki camileri ve türbeleri göstermek için konumunuza erişim istiyor.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Bu uygulama yakındaki camileri ve türbeleri göstermek için konumunuza erişim istiyor.",
+        "NSMicrophoneUsageDescription": "Bu uygulama ses kaydı yapmaz, sadece Kuran okuma özelliği için ses izni gerekir.",
+        "UIBackgroundModes": [
+          "audio",
+          "background-processing"
+        ],
+        "NSUserNotificationsUsageDescription": "Bu uygulama namaz vakitleri ve günlük hatırlatmalar için bildirim gönderir."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/android-icon.png",
+        "backgroundColor": "#2E7D32"
       },
+      "package": "com.zmatik.islamicapp",
+      "versionCode": 1,
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE",
+        "WAKE_LOCK",
+        "FOREGROUND_SERVICE"
+      ],
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-location",
+      "expo-notifications",
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Bu uygulama ses kaydı yapmaz, sadece Kuran okuma özelliği için ses izni gerekir."
+        }
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-3014229693565455~9952061538",
+          "iosAppId": "ca-app-pub-3014229693565455~6288148699",
+          "userTrackingUsageDescription": "Size daha uygun reklamlar gösterebilmek için izninizi istiyoruz."
+        }
+      ],
+      [
+        "expo-tracking-transparency",
+        {
+          "userTrackingPermission": "Size daha uygun reklamlar gösterebilmek için izninizi istiyoruz."
+        }
+      ]
+    ],
+    "notification": {
+      "icon": "./assets/icon.png",
+      "color": "#3d8c47"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "zmatik-islamic-app-2024"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/zmatik-islamic-app-2024"
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-3014229693565455~9952061538",
+    "ios_app_id": "ca-app-pub-3014229693565455~6288148699"
   }
 }
