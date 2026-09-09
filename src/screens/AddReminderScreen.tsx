@@ -12,6 +12,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
+import { formatDateTime, dayInitial } from '../utils/formatTime';
 import { Ionicons } from '@expo/vector-icons';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
@@ -22,7 +23,7 @@ import { useThemeStore } from '../store/useThemeStore';
 type AddReminderScreenNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export const AddReminderScreen = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigation = useNavigation<AddReminderScreenNavigationProp>();
   const { addReminder } = useReminderStore();
   const { getThemeObject } = useThemeStore();
@@ -54,13 +55,7 @@ export const AddReminderScreen = () => {
     }
   };
   
-  const formatTime = (date: Date) => {
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    const period = hours >= 12 ? 'PM' : 'AM';
-    const hour12 = hours % 12 || 12;
-    return `${hour12}:${minutes.toString().padStart(2, '0')} ${period}`;
-  };
+  const formatTime = (date: Date) => formatDateTime(date, i18n.language);
   
   const handleSave = async () => {
     // Validate form
@@ -223,49 +218,49 @@ export const AddReminderScreen = () => {
           <Text style={[styles.label, { color: theme.textColor }]}>{t('days')}</Text>
           <View style={styles.daysContainer}>
             <DayOption
-              label="S"
+              label={dayInitial(0)}
               value={0}
               selected={days.includes(0)}
               onToggle={() => toggleDay(0)}
               theme={theme}
             />
             <DayOption
-              label="M"
+              label={dayInitial(1)}
               value={1}
               selected={days.includes(1)}
               onToggle={() => toggleDay(1)}
               theme={theme}
             />
             <DayOption
-              label="T"
+              label={dayInitial(2)}
               value={2}
               selected={days.includes(2)}
               onToggle={() => toggleDay(2)}
               theme={theme}
             />
             <DayOption
-              label="W"
+              label={dayInitial(3)}
               value={3}
               selected={days.includes(3)}
               onToggle={() => toggleDay(3)}
               theme={theme}
             />
             <DayOption
-              label="T"
+              label={dayInitial(4)}
               value={4}
               selected={days.includes(4)}
               onToggle={() => toggleDay(4)}
               theme={theme}
             />
             <DayOption
-              label="F"
+              label={dayInitial(5)}
               value={5}
               selected={days.includes(5)}
               onToggle={() => toggleDay(5)}
               theme={theme}
             />
             <DayOption
-              label="S"
+              label={dayInitial(6)}
               value={6}
               selected={days.includes(6)}
               onToggle={() => toggleDay(6)}

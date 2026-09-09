@@ -12,6 +12,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useTranslation } from 'react-i18next';
+import { formatTimeString, dayShortName } from '../utils/formatTime';
 import { Ionicons } from '@expo/vector-icons';
 
 import { RootStackParamList } from '../navigation/types';
@@ -24,7 +25,7 @@ import CustomHeader from '../components/common/CustomHeader';
 type RemindersScreenNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export const RemindersScreen = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigation = useNavigation<RemindersScreenNavigationProp>();
   const { 
     reminders, 
@@ -81,16 +82,10 @@ export const RemindersScreen = () => {
   
   const renderReminderItem = ({ item }: { item: Reminder }) => {
     // Format time for display (HH:MM)
-    const [hours, minutes] = item.time.split(':');
-    const hour = parseInt(hours, 10);
-    const minute = parseInt(minutes, 10);
-    const period = hour >= 12 ? 'PM' : 'AM';
-    const hour12 = hour % 12 || 12;
-    const formattedTime = `${hour12}:${minute.toString().padStart(2, '0')} ${period}`;
-    
+    const formattedTime = formatTimeString(item.time, i18n.language);
+
     // Format days
-    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const days = item.days.map(day => dayNames[day]).join(', ');
+    const days = item.days.map((day) => dayShortName(day)).join(', ');
     
     // Get icon based on reminder type
     const getIcon = () => {

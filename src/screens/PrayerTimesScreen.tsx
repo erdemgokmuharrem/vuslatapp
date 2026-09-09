@@ -4,6 +4,7 @@ import {
   ScrollView, Switch, RefreshControl
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { formatTimeString } from '../utils/formatTime';
 import { Ionicons } from '@expo/vector-icons';
 import IslamicBackground from '../components/common/IslamicBackground';
 import { useNavigation } from '@react-navigation/native';
@@ -18,7 +19,7 @@ import { Modal, FlatList } from 'react-native';
 type PrayerTimesScreenNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export const PrayerTimesScreen = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigation = useNavigation<PrayerTimesScreenNavigationProp>();
   const {
     prayerTimes, location, nextPrayer, timeUntilNextPrayer, autoSilentMode,
@@ -49,14 +50,7 @@ export const PrayerTimesScreen = () => {
     setRefreshing(false);
   };
 
-  const formatTime = (time: string) => {
-    if (!time) return '';
-    const [hours, minutes] = time.split(':');
-    const hour = parseInt(hours, 10);
-    const ampm = hour >= 12 ? 'PM' : 'AM';
-    const hour12 = hour % 12 || 12;
-    return `${hour12}:${minutes} ${ampm}`;
-  };
+  const formatTime = (time: string) => formatTimeString(time, i18n.language);
 
   const isNextPrayer = (prayerName: string) => nextPrayer?.name === prayerName;
 
@@ -228,14 +222,7 @@ interface PrayerTimeRowProps {
 }
 
 const PrayerTimeRow: React.FC<PrayerTimeRowProps> = ({ name, time, isNext, theme, t }) => {
-  const formatTime = (time: string) => {
-    if (!time) return '';
-    const [hours, minutes] = time.split(':');
-    const hour = parseInt(hours, 10);
-    const ampm = hour >= 12 ? 'PM' : 'AM';
-    const hour12 = hour % 12 || 12;
-    return `${hour12}:${minutes} ${ampm}`;
-  };
+  const formatTime = (time: string) => formatTimeString(time);
   return (
     <View style={[styles.prayerTimeRow, {
       backgroundColor: isNext ? theme.primaryColor + '30' : theme.cardBackgroundColor,

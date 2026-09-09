@@ -21,14 +21,13 @@
       "buildNumber": "1",
       "icon": "./assets/icon.png",
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "Bu uygulama yakındaki camileri ve türbeleri göstermek için konumunuza erişim istiyor.",
-        "NSLocationAlwaysAndWhenInUseUsageDescription": "Bu uygulama yakındaki camileri ve türbeleri göstermek için konumunuza erişim istiyor.",
-        "NSMicrophoneUsageDescription": "Bu uygulama ses kaydı yapmaz, sadece Kuran okuma özelliği için ses izni gerekir.",
+        "NSLocationWhenInUseUsageDescription": "Namaz vakitlerini ve kıble yönünü bulunduğunuz yere göre hesaplamak, ayrıca yakınınızdaki cami ve türbeleri göstermek için konumunuza erişmek istiyoruz.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Namaz vakitlerini ve kıble yönünü bulunduğunuz yere göre hesaplamak, ayrıca yakınınızdaki cami ve türbeleri göstermek için konumunuza erişmek istiyoruz.",
         "UIBackgroundModes": [
-          "audio",
-          "background-processing"
+          "audio"
         ],
-        "NSUserNotificationsUsageDescription": "Bu uygulama namaz vakitleri ve günlük hatırlatmalar için bildirim gönderir."
+        "NSLocationAlwaysUsageDescription": "Namaz vakitlerini ve kıble yönünü bulunduğunuz yere göre hesaplamak, ayrıca yakınınızdaki cami ve türbeleri göstermek için konumunuza erişmek istiyoruz.",
+        "NSMotionUsageDescription": "Kıble pusulasının yönü doğru göstermesi için cihazınızın hareket ve pusula sensörlerine erişmesi gerekir."
       }
     },
     "android": {
@@ -58,7 +57,7 @@
       [
         "expo-av",
         {
-          "microphonePermission": "Bu uygulama ses kaydı yapmaz, sadece Kuran okuma özelliği için ses izni gerekir."
+          "microphonePermission": false
         }
       ],
       [
