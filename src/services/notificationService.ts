@@ -1,5 +1,4 @@
 import * as Notifications from 'expo-notifications';
-import * as Device from 'expo-device';
 import { Platform } from 'react-native';
 import logger from '../utils/logger';
 
@@ -17,65 +16,68 @@ Notifications.setNotificationHandler({
   }),
 });
 
-// Request permissions
-export const registerForPushNotificationsAsync = async (): Promise<string | null> => {
-  let token = null;
-  
-  if (Device.isDevice) {
+/**
+ * Bildirim iznini ister ve Android bildirim kanallarını kurar.
+ *
+ * Uygulama yalnızca cihaz üzerinde planlanan (local) bildirimler kullanır;
+ * uzak push gönderen bir sunucu yoktur. Bu yüzden Expo push token'ı
+ * alınmaz - bu çağrı bir EAS projectId gerektirir ve gerçek cihazda
+ * hata fırlatırdı.
+ */
+export const registerForPushNotificationsAsync = async (): Promise<boolean> => {
+  try {
+    // Android kanalları izinden bağımsız olarak tanımlanmalı.
+    if (Platform.OS === 'android') {
+      await Notifications.setNotificationChannelAsync('default', {
+        name: 'default',
+        importance: Notifications.AndroidImportance.MAX,
+        vibrationPattern: [0, 250, 250, 250],
+        lightColor: '#FF231F7C',
+      });
+
+      await Notifications.setNotificationChannelAsync('prayer-times', {
+        name: 'Prayer Times',
+        description: 'Notifications for prayer times',
+        importance: Notifications.AndroidImportance.MAX,
+        vibrationPattern: [0, 250, 250, 250],
+        lightColor: '#4CAF50',
+      });
+
+      await Notifications.setNotificationChannelAsync('quran-reminders', {
+        name: 'Quran Reminders',
+        description: 'Reminders to read Quran',
+        importance: Notifications.AndroidImportance.HIGH,
+        vibrationPattern: [0, 250, 250, 250],
+        lightColor: '#2196F3',
+      });
+
+      await Notifications.setNotificationChannelAsync('daily-ayah', {
+        name: 'Daily Ayah',
+        description: 'Daily Ayah and Hadith notifications',
+        importance: Notifications.AndroidImportance.DEFAULT,
+        vibrationPattern: [0, 250, 250, 250],
+        lightColor: '#9C27B0',
+      });
+    }
+
     const { status: existingStatus } = await Notifications.getPermissionsAsync();
     let finalStatus = existingStatus;
-    
+
     if (existingStatus !== 'granted') {
       const { status } = await Notifications.requestPermissionsAsync();
       finalStatus = status;
     }
-    
+
     if (finalStatus !== 'granted') {
-      logger.log('Failed to get push token for push notification!');
-      return null;
+      logger.log('Notification permission was not granted');
+      return false;
     }
-    
-    // Get Expo push token
-    token = (await Notifications.getExpoPushTokenAsync()).data;
-  } else {
-    logger.log('Must use physical device for Push Notifications');
-  }
 
-  // Set up notification channels for Android
-  if (Platform.OS === 'android') {
-    Notifications.setNotificationChannelAsync('default', {
-      name: 'default',
-      importance: Notifications.AndroidImportance.MAX,
-      vibrationPattern: [0, 250, 250, 250],
-      lightColor: '#FF231F7C',
-    });
-    
-    Notifications.setNotificationChannelAsync('prayer-times', {
-      name: 'Prayer Times',
-      description: 'Notifications for prayer times',
-      importance: Notifications.AndroidImportance.MAX,
-      vibrationPattern: [0, 250, 250, 250],
-      lightColor: '#4CAF50',
-    });
-    
-    Notifications.setNotificationChannelAsync('quran-reminders', {
-      name: 'Quran Reminders',
-      description: 'Reminders to read Quran',
-      importance: Notifications.AndroidImportance.HIGH,
-      vibrationPattern: [0, 250, 250, 250],
-      lightColor: '#2196F3',
-    });
-    
-    Notifications.setNotificationChannelAsync('daily-ayah', {
-      name: 'Daily Ayah',
-      description: 'Daily Ayah and Hadith notifications',
-      importance: Notifications.AndroidImportance.DEFAULT,
-      vibrationPattern: [0, 250, 250, 250],
-      lightColor: '#9C27B0',
-    });
+    return true;
+  } catch (error) {
+    logger.error('Error setting up notifications:', error);
+    return false;
   }
-
-  return token;
 };
 
 // Schedule a one-time notification

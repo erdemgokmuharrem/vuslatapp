@@ -40,8 +40,8 @@ export const RemindersScreen = () => {
   useEffect(() => {
     // Request notification permissions when the screen loads
     const requestPermissions = async () => {
-      const token = await registerForPushNotificationsAsync();
-      if (!token) {
+      const granted = await registerForPushNotificationsAsync();
+      if (!granted) {
         Alert.alert(
           t('permissions_required'),
           t('notifications_permission_message'),
