@@ -178,7 +178,7 @@ export default {
   version: 'Версия',
   daily_worship: 'Ежедневная ибада',
   daily_streak: 'Ежедневная серия',
-  days: 'дней',
+  days: 'Дни',
   today_completion: 'Выполнение за сегодня',
 
   // Guide

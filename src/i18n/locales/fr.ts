@@ -178,7 +178,7 @@ export default {
   version: 'Version',
   daily_worship: 'Adoration quotidienne',
   daily_streak: 'Série quotidienne',
-  days: 'jours',
+  days: 'Jours',
   today_completion: "Complétion d'aujourd'hui",
 
   // Guide

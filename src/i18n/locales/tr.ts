@@ -175,7 +175,7 @@ export default {
   version: 'Versiyon',
   daily_worship: 'Günlük İbadet',
   daily_streak: 'Günlük Seri',
-  days: 'gün',
+  days: 'Gün',
   today_completion: 'Bugünün Tamamlanması',
 
   // Guide Screens

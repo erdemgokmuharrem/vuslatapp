@@ -180,7 +180,7 @@ export default {
   version: 'Version',
   daily_worship: 'Daily Worship',
   daily_streak: 'Daily Streak',
-  days: 'days',
+  days: 'Days',
   today_completion: "Today's Completion",
 
   // Guide Screens
