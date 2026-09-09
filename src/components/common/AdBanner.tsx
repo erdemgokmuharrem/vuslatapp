@@ -3,9 +3,9 @@ import { View, Platform, StyleSheet } from 'react-native';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 import { useThemeStore } from '../../store/useThemeStore';
 
-// Google Test Reklam ID'leri
-// TODO: Gerçek reklam birimi ID'lerini (Ad Unit ID) uygulamanız onaylandığında buraya yapıştırın.
-const adUnitId = __DEV__ 
+// Geliştirme sırasında Google'ın test reklamları, yayında gerçek reklam birimleri
+// kullanılır. Test dışı ID'lerin simülatörde gösterilmesi politika ihlali sayılır.
+const adUnitId = __DEV__
   ? TestIds.ADAPTIVE_BANNER
   : Platform.OS === 'ios'
     ? 'ca-app-pub-3014229693565455/6804977849' // Kendi iOS Banner ID'niz
