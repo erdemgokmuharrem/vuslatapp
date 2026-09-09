@@ -27,7 +27,14 @@ export const AppLogo: React.FC<AppLogoProps> = ({ size = 60, showText = true }) 
       ]}>
         <View style={styles.crescentContainer}>
           <View style={[styles.crescentOuter, { width: size * 0.6, height: size * 0.6 }]}>
-            <View style={[styles.crescentInner, { width: size * 0.45, height: size * 0.45 }]} />
+            {/* Hilalin oyuğu, dış dairenin rengiyle aynı olmalı; aksi halde
+                hilal yerine düz bir daire görünür. */}
+            <View
+              style={[
+                styles.crescentInner,
+                { width: size * 0.45, height: size * 0.45, backgroundColor: theme.primaryColor },
+              ]}
+            />
           </View>
           <Ionicons name="star" size={size * 0.2} color="#FFD700" style={styles.star} />
         </View>
@@ -65,7 +72,6 @@ const styles = StyleSheet.create({
   },
   crescentInner: {
     borderRadius: 1000,
-    backgroundColor: '#4CAF50',
     position: 'absolute',
     top: '10%',
     right: '-15%',

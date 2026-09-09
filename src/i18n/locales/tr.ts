@@ -343,4 +343,11 @@ export default {
   today: 'Bugün',
   prayer_notifications_10m: 'Vakte 10 Dk Kala Bildir',
   profile_local_only: 'Adınız yalnızca bu cihazda saklanır; hiçbir sunucuya gönderilmez.',
+
+  // Alt sekme etiketleri (dar alana sığması için kısa tutulur)
+  tabbar_tasbih: 'Tesbih',
+  tabbar_prayer: 'Namaz',
+  tabbar_quran: 'Kuran',
+  tabbar_dua: 'Dua',
+  tabbar_worship: 'İbadet',
 };

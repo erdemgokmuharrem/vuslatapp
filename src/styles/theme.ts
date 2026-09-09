@@ -175,13 +175,48 @@ export const themes: Record<ThemeType, Theme> = {
   },
 };
 
-// Bir temanın koyu mu açık mı olduğunu arka plan parlaklığından hesaplar.
-// Durum çubuğu (status bar) ve arka plan tonlarının temaya uyması için kullanılır.
-export const isDarkTheme = (theme: ThemeType): boolean => {
-  const hex = themes[theme]?.backgroundColor?.replace('#', '') ?? '';
-  if (hex.length < 6) return false;
+// Bir rengin algılanan parlaklığı (0-255). Hex olmayan değerlerde null döner.
+const perceivedBrightness = (color?: string): number | null => {
+  const hex = color?.replace('#', '') ?? '';
+  if (hex.length < 6) return null;
   const r = parseInt(hex.slice(0, 2), 16);
   const g = parseInt(hex.slice(2, 4), 16);
   const b = parseInt(hex.slice(4, 6), 16);
-  return 0.299 * r + 0.587 * g + 0.114 * b < 128;
+  if ([r, g, b].some(Number.isNaN)) return null;
+  return 0.299 * r + 0.587 * g + 0.114 * b;
+};
+
+// Bir temanın koyu mu açık mı olduğunu arka plan parlaklığından hesaplar.
+// Durum çubuğu (status bar) ve arka plan tonlarının temaya uyması için kullanılır.
+export const isDarkTheme = (theme: ThemeType): boolean => {
+  const brightness = perceivedBrightness(themes[theme]?.backgroundColor);
+  return brightness !== null && brightness < 128;
+};
+
+// WCAG bağıl parlaklık (relative luminance).
+const relativeLuminance = (color?: string): number | null => {
+  const hex = color?.replace('#', '') ?? '';
+  if (hex.length < 6) return null;
+  const channels = [0, 2, 4].map((i) => {
+    const v = parseInt(hex.slice(i, i + 2), 16) / 255;
+    return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+  });
+  if (channels.some(Number.isNaN)) return null;
+  return 0.2126 * channels[0] + 0.7152 * channels[1] + 0.0722 * channels[2];
+};
+
+const contrastRatio = (a: number, b: number): number =>
+  (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+
+export const ON_COLOR_LIGHT = '#FFFFFF';
+export const ON_COLOR_DARK = '#1F2937';
+
+// Verilen zemin üzerinde hangisi daha okunaklıysa onu döner. Açık yeşil, altın
+// ve turuncu gibi parlak vurgu renklerinde beyaz yazı yeterli kontrast vermiyor.
+export const onColor = (background?: string): string => {
+  const bg = relativeLuminance(background);
+  if (bg === null) return ON_COLOR_LIGHT;
+  const light = relativeLuminance(ON_COLOR_LIGHT) ?? 1;
+  const dark = relativeLuminance(ON_COLOR_DARK) ?? 0;
+  return contrastRatio(bg, dark) > contrastRatio(bg, light) ? ON_COLOR_DARK : ON_COLOR_LIGHT;
 };

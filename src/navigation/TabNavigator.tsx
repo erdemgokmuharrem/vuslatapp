@@ -5,6 +5,7 @@ import { View, StyleSheet, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useThemeStore } from '../store/useThemeStore';
+import { onColor } from '../styles/theme';
 
 import { TabParamList } from './types';
 import TasbihScreen from '../screens/TasbihScreen';
@@ -21,14 +22,18 @@ export const TabNavigator = () => {
   const theme = getThemeObject();
   const insets = useSafeAreaInsets();
 
+  // Sekme çubuğu zemini temanın ana rengi; altın/turuncu gibi parlak
+  // tonlarda beyaz yazı okunmuyor, bu yüzden kontrasta göre seçiliyor.
+  const tabTint = onColor(theme.primaryColor);
+
   // Tab bar yüksekliğini hesapla
   const tabBarHeight = 60 + (Platform.OS === 'ios' ? insets.bottom : 8);
 
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: '#FFFFFF',
-        tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.6)',
+        tabBarActiveTintColor: tabTint,
+        tabBarInactiveTintColor: tabTint + 'A6',
         headerShown: false,
         tabBarStyle: {
           backgroundColor: theme.primaryColor,
@@ -60,7 +65,7 @@ export const TabNavigator = () => {
         name="Tasbih"
         component={TasbihScreen}
         options={{
-          title: t('tab_tasbih'),
+          title: t('tabbar_tasbih'),
           tabBarIcon: ({ color, focused }) => (
             <View style={focused ? styles.activeIconContainer : undefined}>
               <Ionicons
@@ -76,7 +81,7 @@ export const TabNavigator = () => {
         name="Prayer"
         component={PrayerTimesScreen}
         options={{
-          title: t('tab_prayer'),
+          title: t('tabbar_prayer'),
           tabBarIcon: ({ color, focused }) => (
             <View style={focused ? styles.activeIconContainer : undefined}>
               <Ionicons
@@ -92,7 +97,7 @@ export const TabNavigator = () => {
         name="Quran"
         component={SurahListScreen}
         options={{
-          title: t('tab_quran'),
+          title: t('tabbar_quran'),
           tabBarIcon: ({ color, focused }) => (
             <View style={focused ? styles.activeIconContainer : undefined}>
               <Ionicons
@@ -108,7 +113,7 @@ export const TabNavigator = () => {
         name="Dua"
         component={DuaLibraryScreen}
         options={{
-          title: t('tab_dua'),
+          title: t('tabbar_dua'),
           tabBarIcon: ({ color, focused }) => (
             <View style={focused ? styles.activeIconContainer : undefined}>
               <Ionicons
@@ -124,7 +129,7 @@ export const TabNavigator = () => {
         name="More"
         component={DailyWorshipScreen}
         options={{
-          title: t('tab_worship'),
+          title: t('tabbar_worship'),
           tabBarIcon: ({ color, focused }) => (
             <View style={focused ? styles.activeIconContainer : undefined}>
               <Ionicons

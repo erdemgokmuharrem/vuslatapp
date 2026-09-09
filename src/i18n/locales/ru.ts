@@ -335,4 +335,11 @@ export default {
   reminder_title_placeholder: 'Заголовок напоминания...',
   reminder_message_placeholder: 'Детали сообщения...',
   profile_local_only: 'Ваше имя хранится только на этом устройстве и никогда не отправляется на сервер.',
+
+  // Alt sekme etiketleri (dar alana sığması için kısa tutulur)
+  tabbar_tasbih: 'Тасбих',
+  tabbar_prayer: 'Намаз',
+  tabbar_quran: 'Коран',
+  tabbar_dua: 'Дуа',
+  tabbar_worship: 'Ибада',
 };

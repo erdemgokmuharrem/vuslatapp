@@ -341,4 +341,11 @@ export default {
   today: 'Today',
   prayer_notifications_10m: 'Notify 10 Min Before',
   profile_local_only: 'Your name is stored only on this device and is never sent to a server.',
+
+  // Alt sekme etiketleri (dar alana sığması için kısa tutulur)
+  tabbar_tasbih: 'Tasbih',
+  tabbar_prayer: 'Prayer',
+  tabbar_quran: 'Quran',
+  tabbar_dua: 'Dua',
+  tabbar_worship: 'Worship',
 };
