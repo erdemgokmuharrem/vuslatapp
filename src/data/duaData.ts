@@ -79,8 +79,7 @@ export const duas: Dua[] = [
     translation: 'Allah - there is no deity except Him, the Ever-Living, the Sustainer of existence. Neither drowsiness overtakes Him nor sleep. To Him belongs whatever is in the heavens and whatever is on the earth. Who is it that can intercede with Him except by His permission? He knows what is before them and what will be after them, and they encompass not a thing of His knowledge except for what He wills. His Kursi extends over the heavens and the earth, and their preservation tires Him not. And He is the Most High, the Most Great.',
     translationTr: 'Allah, O\'ndan başka ilah yoktur. O diridir, kayyumdur (her şeyi ayakta tutan). O\'nu ne uyuklama alır, ne de uyku. Göklerde ve yerde ne varsa hepsi O\'nundur. İzni olmaksızın O\'nun katında şefaatte bulunacak kimdir? O, önlerindekini ve arkalarındakini bilir. Onlar ise, O\'nun dilediği kadarından başka, O\'nun ilminden hiçbir şeyi kavrayamazlar. O\'nun kürsüsü bütün gökleri ve yeri kaplamıştır. Onları koruyup gözetmek O\'na güç gelmez. O yücedir, büyüktür.',
     category: 'morning_evening',
-    reference: 'Quran 2:255',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav' // Placeholder
+    reference: 'Quran 2:255'
   },
 
   // Sabah Duası
@@ -233,7 +232,6 @@ export const duas: Dua[] = [
     arabic: 'بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا',
     category: 'daily',
     reference: 'Sahih Al-Bukhari 6324',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
   },
   {
     id: 'dua_istikharah',
@@ -246,7 +244,6 @@ export const duas: Dua[] = [
     arabic: 'اللَّهُمَّ إِنِّي أَسْتَخِيرُكَ بِعِلْمِكَ، وَأَسْتَقْدِرُكَ بِقُدْرَتِكَ، وَأَسْأَلُكَ مِنْ فَضْلِكَ الْعَظِيمِ، فَإِنَّكَ تَقْدِرُ وَلَا أَقْدِرُ، وَتَعْلَمُ وَلَا أَعْلَمُ، وَأَنْتَ عَلَّامُ الْغُيُوبِ، اللَّهُمَّ إِنْ كُنْتَ تَعْلَمُ أَنَّ هَذَا الْأَمْرَ خَيْرٌ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي، فَاقْدُرْهُ لِي وَيَسِّرْهُ لِي، ثُمَّ بَارِكْ لِي فِيهِ، وَإِنْ كُنْتَ تَعْلَمُ أَنَّ هَذَا الْأَمْرَ شَرٌّ لِي فِي دِينِي وَمَعَاشِي وَعَاقِبَةِ أَمْرِي، فَاصْرِفْهُ عَنِّي وَاصْرِفْنِي عَنْهُ، وَاقْدُرْ لِي الْخَيْرَ حَيْثُ كَانَ، ثُمَّ أَرْضِنِي بِهِ',
     category: 'daily',
     reference: 'Sahih Al-Bukhari 1166',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav',
   },
   // Bereket/Rızık Duası 1
   {

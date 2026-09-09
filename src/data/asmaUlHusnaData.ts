@@ -25,8 +25,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who has plenty of mercy for the believers and the blasphemers in this world and especially for the believers in the hereafter',
     descriptionTr: 'Bu dünyada mümin ve kafir herkese, ahirette ise özellikle müminlere sonsuz merhamet eden',
     benefits: 'Reciting brings mercy and compassion',
-    benefitsTr: 'Okunması merhamet ve şefkat getirir',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Okunması merhamet ve şefkat getirir'
   },
   {
     id: 2,
@@ -38,8 +37,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who has plenty of mercy for the believers',
     descriptionTr: 'Müminlere özel merhamet ve şefkat gösteren',
     benefits: 'Brings divine mercy and forgiveness',
-    benefitsTr: 'İlahi merhamet ve bağışlanma getirir',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'İlahi merhamet ve bağışlanma getirir'
   },
   {
     id: 3,
@@ -51,8 +49,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who reigns and controls all that exists',
     descriptionTr: 'Var olan her şeye hükmeden ve kontrol eden',
     benefits: 'Helps in leadership and authority',
-    benefitsTr: 'Liderlik ve otorite konularında yardımcı olur',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Liderlik ve otorite konularında yardımcı olur'
   },
   {
     id: 4,
@@ -64,8 +61,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who is pure from any imperfection and clear from children and adversaries',
     descriptionTr: 'Her türlü eksiklik ve kusurdan uzak, çocuk ve rakiplerden münezzeh olan',
     benefits: 'Purifies the heart and soul',
-    benefitsTr: 'Kalp ve ruhu temizler',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Kalp ve ruhu temizler'
   },
   {
     id: 5,
@@ -77,8 +73,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who is free from every imperfection',
     descriptionTr: 'Her türlü kusur ve eksiklikten uzak olan',
     benefits: 'Brings peace and tranquility',
-    benefitsTr: 'Huzur ve sükunet getirir',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Huzur ve sükunet getirir'
   },
   {
     id: 6,
@@ -90,8 +85,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who witnessed for Himself that no one is God but Him',
     descriptionTr: 'Kendisinden başka ilah olmadığına şahitlik eden',
     benefits: 'Provides security and faith',
-    benefitsTr: 'Güvenlik ve iman sağlar',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Güvenlik ve iman sağlar'
   },
   {
     id: 7,
@@ -103,8 +97,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who witnesses the saying and deeds of His creatures',
     descriptionTr: 'Yaratıklarının söz ve amellerini gören ve koruyan',
     benefits: 'Divine protection and oversight',
-    benefitsTr: 'İlahi koruma ve gözetim',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'İlahi koruma ve gözetim'
   },
   {
     id: 8,
@@ -116,8 +109,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who is defeated by nothing',
     descriptionTr: 'Hiçbir şey tarafından yenilmeyen',
     benefits: 'Grants strength and honor',
-    benefitsTr: 'Güç ve şeref verir',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Güç ve şeref verir'
   },
   {
     id: 9,
@@ -129,8 +121,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One that nothing happens in His Dominion except that which He willed',
     descriptionTr: 'Mülkünde sadece dilediği şeylerin olmasına izin veren',
     benefits: 'Helps overcome difficulties',
-    benefitsTr: 'Zorlukları aşmaya yardım eder',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Zorlukları aşmaya yardım eder'
   },
   {
     id: 10,
@@ -142,8 +133,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who rejects the attributes of the creatures and possesses the attributes of the Exalted',
     descriptionTr: 'Yaratık sıfatlarını reddeden ve yüce sıfatlara sahip olan',
     benefits: 'Increases dignity and self-respect',
-    benefitsTr: 'Haysiyet ve öz saygıyı artırır',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Haysiyet ve öz saygıyı artırır'
   },
   {
     id: 11,
@@ -155,8 +145,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who brings everything from non-existence to existence',
     descriptionTr: 'Her şeyi yokluktan varlığa getiren',
     benefits: 'Enhances creativity and innovation',
-    benefitsTr: 'Yaratıcılık ve yenilikçiliği artırır',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Yaratıcılık ve yenilikçiliği artırır'
   },
   {
     id: 12,
@@ -168,8 +157,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who created the creation and made it very excellent',
     descriptionTr: 'Yaratıkları yaratıp mükemmel şekilde düzenleyen',
     benefits: 'Helps in personal development',
-    benefitsTr: 'Kişisel gelişimde yardımcı olur',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Kişisel gelişimde yardımcı olur'
   },
   {
     id: 13,
@@ -181,8 +169,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who forms His creatures in different pictures',
     descriptionTr: 'Yaratıklarını farklı şekillerde biçimlendiren',
     benefits: 'Improves artistic abilities',
-    benefitsTr: 'Sanatsal yetenekleri geliştirir',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Sanatsal yetenekleri geliştirir'
   },
   {
     id: 14,
@@ -194,8 +181,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who forgives the sins of His slaves time and time again',
     descriptionTr: 'Kullarının günahlarını defalarca bağışlayan',
     benefits: 'Brings forgiveness and mercy',
-    benefitsTr: 'Bağışlanma ve merhamet getirir',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Bağışlanma ve merhamet getirir'
   },
   {
     id: 15,
@@ -207,8 +193,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who has the perfect Power and is not unable over anything',
     descriptionTr: 'Mükemmel güce sahip olan ve hiçbir şeyden aciz olmayan',
     benefits: 'Helps overcome enemies and obstacles',
-    benefitsTr: 'Düşmanları ve engelleri aşmaya yardım eder',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Düşmanları ve engelleri aşmaya yardım eder'
   },
   {
     id: 16,
@@ -220,8 +205,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who is Generous in giving plenty without any return',
     descriptionTr: 'Karşılık beklemeden bol bol veren cömert olan',
     benefits: 'Increases sustenance and blessings',
-    benefitsTr: 'Rızık ve bereketi artırır',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Rızık ve bereketi artırır'
   },
   {
     id: 17,
@@ -233,8 +217,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who provides all creatures with all that they need',
     descriptionTr: 'Tüm yaratıklara ihtiyaçlarını sağlayan',
     benefits: 'Provides sustenance and livelihood',
-    benefitsTr: 'Rızık ve geçim sağlar',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Rızık ve geçim sağlar'
   },
   {
     id: 18,
@@ -246,8 +229,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who opens for His slaves the closed worldly and religious matters',
     descriptionTr: 'Kulları için kapalı dünyevi ve dini meseleleri açan',
     benefits: 'Opens doors of opportunity',
-    benefitsTr: 'Fırsat kapılarını açar',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Fırsat kapılarını açar'
   },
   {
     id: 19,
@@ -259,8 +241,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who knows everything',
     descriptionTr: 'Her şeyi bilen',
     benefits: 'Increases knowledge and wisdom',
-    benefitsTr: 'İlim ve hikmeti artırır',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'İlim ve hikmeti artırır'
   },
   {
     id: 20,
@@ -272,8 +253,7 @@ export const asmaUlHusnaNames: AsmaUlHusnaName[] = [
     description: 'The One who constricts the sustenance by His wisdom',
     descriptionTr: 'Hikmetiyle rızkı darlaştıran',
     benefits: 'Teaches patience and contentment',
-    benefitsTr: 'Sabır ve kanaat öğretir',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    benefitsTr: 'Sabır ve kanaat öğretir'
   }
   // Note: This is a sample of the first 20 names. The complete implementation would include all 99 names.
 ];

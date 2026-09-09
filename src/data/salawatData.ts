@@ -74,8 +74,7 @@ export const salawatCollection: Salawat[] = [
     translationTr: 'Allah ona salat ve selam etsin',
     benefits: 'Basic form of sending blessings',
     benefitsTr: 'Salavat getirmenin temel şekli',
-    category: 'basic',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    category: 'basic'
   },
   {
     id: 'basic_salawat_2',
@@ -89,8 +88,7 @@ export const salawatCollection: Salawat[] = [
     benefits: 'Includes blessings for Prophet\'s family',
     benefitsTr: 'Peygamber\'in ailesi için de dua içerir',
     source: 'Sahih Bukhari',
-    category: 'basic',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    category: 'basic'
   },
   {
     id: 'basic_salawat_3',
@@ -104,8 +102,7 @@ export const salawatCollection: Salawat[] = [
     benefits: 'Complete form taught by Prophet (PBUH)',
     benefitsTr: 'Peygamber Efendimizin öğrettiği tam şekil',
     source: 'Sahih Bukhari, Sahih Muslim',
-    category: 'basic',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    category: 'basic'
   },
 
   // Special Occasions
@@ -121,8 +118,7 @@ export const salawatCollection: Salawat[] = [
     benefits: 'Helps in times of difficulty and distress',
     benefitsTr: 'Sıkıntı ve darlık zamanlarında yardımcı olur',
     source: 'Ibn Majah',
-    category: 'special',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    category: 'special'
   },
   {
     id: 'special_salawat_2',
@@ -135,8 +131,7 @@ export const salawatCollection: Salawat[] = [
     translationTr: 'Allah\'ım, kulun ve elçin olan ümmi Peygamber Muhammed\'e salat et',
     benefits: 'Seeking forgiveness through Prophet\'s intercession',
     benefitsTr: 'Peygamber\'in şefaati ile bağışlanma dileği',
-    category: 'special',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    category: 'special'
   },
 
   // Blessed Times
@@ -151,8 +146,7 @@ export const salawatCollection: Salawat[] = [
     translationTr: 'Allah\'ım, efendimiz Muhammed\'e salat, selam ve bereket ver',
     benefits: 'Special virtue when recited on Friday',
     benefitsTr: 'Cuma günü okunduğunda özel fazilet',
-    category: 'blessed_times',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    category: 'blessed_times'
   },
   {
     id: 'blessed_salawat_2',
@@ -165,8 +159,7 @@ export const salawatCollection: Salawat[] = [
     translationTr: 'Allah\'ım, Muhammed\'e ve ailesine evvelkilerde salat et ve Muhammed\'e ve ailesine ahiretkilerde salat et',
     benefits: 'Especially beneficial during Laylat al-Qadr',
     benefitsTr: 'Kadir Gecesi\'nde özellikle faydalı',
-    category: 'blessed_times',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    category: 'blessed_times'
   },
 
   // Comprehensive Salawat
@@ -181,8 +174,7 @@ export const salawatCollection: Salawat[] = [
     translationTr: 'Allah\'ım, efendimiz Muhammed\'e salat et ki, onun sayesinde düğümler çözülür, sıkıntılar giderilir, ihtiyaçlar karşılanır, istekler elde edilir, güzel sonlar nasip olur ve onun mübarek yüzü vesilesiyle yağmur istenir. Ailesine ve ashabına da her an ve nefeste, senin bildiğin her şey sayısınca salat et',
     benefits: 'Powerful salawat for resolving difficulties',
     benefitsTr: 'Sıkıntıları çözmek için güçlü salavat',
-    category: 'comprehensive',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    category: 'comprehensive'
   },
   {
     id: 'comprehensive_salawat_2',
@@ -195,8 +187,7 @@ export const salawatCollection: Salawat[] = [
     translationTr: 'Allah\'ım, efendimiz Muhammed\'e salat et; o kapalı olanı açan, öncekini mühürleyen, hakkı hakla destekleyen, dosdoğru yoluna hidayet eden ve ailesine onun değeri ve büyük makamı hakkıyla salat et',
     benefits: 'Opens doors of mercy and blessings',
     benefitsTr: 'Rahmet ve bereket kapılarını açar',
-    category: 'comprehensive',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    category: 'comprehensive'
   }
 ];
 

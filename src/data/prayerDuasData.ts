@@ -97,8 +97,7 @@ export const prayerDuas: PrayerDua[] = [
     when: 'At the very beginning of prayer',
     whenTr: 'Namazın en başında',
     source: 'Quran & Sunnah',
-    isRequired: true,
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    isRequired: true
   },
   {
     id: 'opening_iftitah',
@@ -115,8 +114,7 @@ export const prayerDuas: PrayerDua[] = [
     when: 'After opening Takbir, before Fatiha',
     whenTr: 'Açılış tekbirinden sonra, Fatiha\'dan önce',
     source: 'Abu Dawud, Tirmidhi',
-    isRequired: false,
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    isRequired: false
   },
   {
     id: 'opening_auzu',
@@ -133,8 +131,7 @@ export const prayerDuas: PrayerDua[] = [
     when: 'Before reciting Fatiha',
     whenTr: 'Fatiha okumadan önce',
     source: 'Quran 16:98',
-    isRequired: true,
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    isRequired: true
   },
   {
     id: 'opening_bismillah',
@@ -151,8 +148,7 @@ export const prayerDuas: PrayerDua[] = [
     when: 'Before reciting Fatiha',
     whenTr: 'Fatiha okumadan önce',
     source: 'Quran 1:1',
-    isRequired: true,
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    isRequired: true
   },
 
   // Ruku Duas
@@ -171,8 +167,7 @@ export const prayerDuas: PrayerDua[] = [
     when: 'During Ruku position',
     whenTr: 'Rükû pozisyonunda',
     source: 'Sahih Muslim',
-    isRequired: true,
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    isRequired: true
   },
   {
     id: 'ruku_extended',
@@ -189,8 +184,7 @@ export const prayerDuas: PrayerDua[] = [
     when: 'During Ruku position (optional addition)',
     whenTr: 'Rükû pozisyonunda (isteğe bağlı ekleme)',
     source: 'Abu Dawud',
-    isRequired: false,
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    isRequired: false
   },
   {
     id: 'ruku_rising',
@@ -207,8 +201,7 @@ export const prayerDuas: PrayerDua[] = [
     when: 'While rising from Ruku',
     whenTr: 'Rükûdan kalkarken',
     source: 'Sahih Bukhari',
-    isRequired: true,
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    isRequired: true
   },
 
   // Sujud Duas
@@ -227,8 +220,7 @@ export const prayerDuas: PrayerDua[] = [
     when: 'During Sujud position',
     whenTr: 'Secde pozisyonunda',
     source: 'Sahih Muslim',
-    isRequired: true,
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    isRequired: true
   },
   {
     id: 'sujud_dua',
@@ -245,8 +237,7 @@ export const prayerDuas: PrayerDua[] = [
     when: 'During Sujud (optional)',
     whenTr: 'Secde sırasında (isteğe bağlı)',
     source: 'Sahih Muslim',
-    isRequired: false,
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    isRequired: false
   },
 
   // Sitting Duas (Tashahhud)
@@ -265,8 +256,7 @@ export const prayerDuas: PrayerDua[] = [
     when: 'In the first sitting of 3 or 4 rakat prayers',
     whenTr: '3 veya 4 rekatlı namazların ilk oturuşunda',
     source: 'Sahih Bukhari, Sahih Muslim',
-    isRequired: true,
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    isRequired: true
   },
 
   // Closing Duas
@@ -285,8 +275,7 @@ export const prayerDuas: PrayerDua[] = [
     when: 'In the final sitting before Salam',
     whenTr: 'Selamdan önceki son oturuşta',
     source: 'Sahih Bukhari, Sahih Muslim',
-    isRequired: true,
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    isRequired: true
   },
   {
     id: 'closing_dua',
@@ -303,8 +292,7 @@ export const prayerDuas: PrayerDua[] = [
     when: 'Before final Salam',
     whenTr: 'Son selamdan önce',
     source: 'Quran 2:201',
-    isRequired: false,
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    isRequired: false
   },
   {
     id: 'closing_salam',
@@ -321,8 +309,7 @@ export const prayerDuas: PrayerDua[] = [
     when: 'At the very end of prayer',
     whenTr: 'Namazın en sonunda',
     source: 'Sahih Muslim',
-    isRequired: true,
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    isRequired: true
   }
 ];
 

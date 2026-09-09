@@ -105,8 +105,7 @@ export const beautifulDuas: BeautifulDua[] = [
     occasionTr: 'Sabah uyandığında',
     benefits: 'Starts the day with remembrance of Allah',
     benefitsTr: 'Güne Allah\'ı anarak başlar',
-    source: 'Abu Dawud',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    source: 'Abu Dawud'
   },
   {
     id: 'daily_evening',
@@ -123,8 +122,7 @@ export const beautifulDuas: BeautifulDua[] = [
     occasionTr: 'Akşam vakti',
     benefits: 'Ends the day with gratitude to Allah',
     benefitsTr: 'Güne Allah\'a şükürle son verir',
-    source: 'Abu Dawud',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    source: 'Abu Dawud'
   },
   {
     id: 'daily_eating',
@@ -141,8 +139,7 @@ export const beautifulDuas: BeautifulDua[] = [
     occasionTr: 'Yemek yemeden önce',
     benefits: 'Seeks Allah\'s blessing on the food',
     benefitsTr: 'Yemeğe Allah\'ın bereket vermesini diler',
-    source: 'Sahih Muslim',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    source: 'Sahih Muslim'
   },
 
   // Protection Duas
@@ -161,8 +158,7 @@ export const beautifulDuas: BeautifulDua[] = [
     occasionTr: 'Genel korunma için',
     benefits: 'Protects from all kinds of harm',
     benefitsTr: 'Her türlü zarardan korur',
-    source: 'Sahih Muslim',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    source: 'Sahih Muslim'
   },
   {
     id: 'protection_travel',
@@ -179,8 +175,7 @@ export const beautifulDuas: BeautifulDua[] = [
     occasionTr: 'Yolculuğa başlarken',
     benefits: 'Ensures safe travel',
     benefitsTr: 'Güvenli yolculuk sağlar',
-    source: 'Quran 43:13-14',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    source: 'Quran 43:13-14'
   },
 
   // Forgiveness Duas
@@ -199,8 +194,7 @@ export const beautifulDuas: BeautifulDua[] = [
     occasionTr: 'Günlük, özellikle sabahları',
     benefits: 'Most comprehensive prayer for forgiveness',
     benefitsTr: 'Bağışlanma için en kapsamlı dua',
-    source: 'Sahih Bukhari',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    source: 'Sahih Bukhari'
   },
 
   // Guidance Duas
@@ -219,8 +213,7 @@ export const beautifulDuas: BeautifulDua[] = [
     occasionTr: 'Önemli kararlar verirken',
     benefits: 'Seeks Allah\'s guidance in decision making',
     benefitsTr: 'Karar vermede Allah\'ın rehberliğini diler',
-    source: 'Sahih Bukhari',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    source: 'Sahih Bukhari'
   },
 
   // Health Duas
@@ -239,8 +232,7 @@ export const beautifulDuas: BeautifulDua[] = [
     occasionTr: 'Günlük sağlık duası',
     benefits: 'Seeks complete physical health',
     benefitsTr: 'Tam fiziksel sağlık diler',
-    source: 'Abu Dawud',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    source: 'Abu Dawud'
   },
 
   // Gratitude Duas
@@ -259,8 +251,7 @@ export const beautifulDuas: BeautifulDua[] = [
     occasionTr: 'Şükür ifadesi için her zaman',
     benefits: 'Expresses gratitude to Allah',
     benefitsTr: 'Allah\'a şükür ifade eder',
-    source: 'Quran 1:2',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    source: 'Quran 1:2'
   },
 
   // Special Occasions
@@ -279,8 +270,7 @@ export const beautifulDuas: BeautifulDua[] = [
     occasionTr: 'Kuraklık zamanında veya yağmur ihtiyacında',
     benefits: 'Seeks Allah\'s mercy through rain',
     benefitsTr: 'Yağmur yoluyla Allah\'ın rahmetini diler',
-    source: 'Sahih Bukhari',
-    audioUrl: 'https://www.soundjay.com/misc/sounds/bell-ringing-05.wav'
+    source: 'Sahih Bukhari'
   }
 ];
 
