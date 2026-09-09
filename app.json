@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#2E7D32"
+      "backgroundColor": "#123923"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -34,7 +34,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/android-icon.png",
-        "backgroundColor": "#2E7D32"
+        "backgroundColor": "#123923"
       },
       "package": "com.zmatik.islamicapp",
       "versionCode": 1,
@@ -74,22 +74,12 @@
         {
           "userTrackingPermission": "Size daha uygun reklamlar gösterebilmek için izninizi istiyoruz."
         }
-      ]
+      ],
+      "expo-font"
     ],
     "notification": {
-      "icon": "./assets/icon.png",
+      "icon": "./assets/notification-icon.png",
       "color": "#3d8c47"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "zmatik-islamic-app-2024"
-      }
-    },
-    "updates": {
-      "url": "https://u.expo.dev/zmatik-islamic-app-2024"
-    },
-    "runtimeVersion": {
-      "policy": "sdkVersion"
     }
   },
   "react-native-google-mobile-ads": {
