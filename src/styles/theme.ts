@@ -174,3 +174,14 @@ export const themes: Record<ThemeType, Theme> = {
     borderColor: colors.sunsetOrange + '40',
   },
 };
+
+// Bir temanın koyu mu açık mı olduğunu arka plan parlaklığından hesaplar.
+// Durum çubuğu (status bar) ve arka plan tonlarının temaya uyması için kullanılır.
+export const isDarkTheme = (theme: ThemeType): boolean => {
+  const hex = themes[theme]?.backgroundColor?.replace('#', '') ?? '';
+  if (hex.length < 6) return false;
+  const r = parseInt(hex.slice(0, 2), 16);
+  const g = parseInt(hex.slice(2, 4), 16);
+  const b = parseInt(hex.slice(4, 6), 16);
+  return 0.299 * r + 0.587 * g + 0.114 * b < 128;
+};

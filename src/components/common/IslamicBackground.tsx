@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Dimensions } from 'react-native';
+import { useThemeStore } from '../../store/useThemeStore';
+import { isDarkTheme } from '../../styles/theme';
 
 interface IslamicBackgroundProps {
   children: React.ReactNode;
@@ -7,23 +9,38 @@ interface IslamicBackgroundProps {
 
 const { width, height } = Dimensions.get('window');
 
+// Açık temalarda kullanılan nane yeşili zemin ve yeşil süslemeler.
+const LIGHT_SURFACE = '#E8F5E8';
+
 const IslamicBackground: React.FC<IslamicBackgroundProps> = ({ children }) => {
+  const { theme, getThemeObject } = useThemeStore();
+  const themeObj = getThemeObject();
+  const dark = isDarkTheme(theme);
+
+  // Koyu temalarda zemin ve süsleme renkleri temadan alınır; aksi halde
+  // uygulamanın nane yeşili görünümü korunur.
+  const surface = dark ? themeObj.backgroundColor : LIGHT_SURFACE;
+  const decorFill = dark ? 'rgba(255, 255, 255, 0.10)' : 'rgba(27, 94, 32, 0.15)';
+  const decorBorder = dark ? 'rgba(255, 255, 255, 0.18)' : 'rgba(27, 94, 32, 0.25)';
+  const decorAccent = dark ? 'rgba(255, 255, 255, 0.22)' : 'rgba(27, 94, 32, 0.3)';
+  const cornerColor = dark ? 'rgba(255, 255, 255, 0.12)' : 'rgba(46, 125, 50, 0.1)';
+
   return (
     <View style={styles.container}>
-      <View style={styles.background} />
-      
+      <View style={[styles.background, { backgroundColor: surface }]} />
+
       {/* Islamic Crescent Moon in the center background */}
       <View style={styles.crescentContainer}>
-        <View style={styles.crescentOuter}>
-          <View style={styles.crescentInner} />
+        <View style={[styles.crescentOuter, { backgroundColor: decorFill, borderColor: decorBorder }]}>
+          <View style={[styles.crescentInner, { backgroundColor: surface }]} />
         </View>
         {/* Small star */}
-        <View style={styles.star} />
+        <View style={[styles.star, { backgroundColor: decorAccent }]} />
       </View>
 
       {/* Decorative corner elements */}
-      <View style={styles.cornerTopLeft} />
-      <View style={styles.cornerBottomRight} />
+      <View style={[styles.cornerTopLeft, { borderColor: cornerColor }]} />
+      <View style={[styles.cornerBottomRight, { borderColor: cornerColor }]} />
 
       {children}
     </View>
@@ -41,7 +58,6 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     bottom: 0,
-    backgroundColor: '#E8F5E8',
   },
   crescentContainer: {
     position: 'absolute',
@@ -56,9 +72,7 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 60,
-    backgroundColor: 'rgba(27, 94, 32, 0.15)',    // Darker green
     borderWidth: 2,
-    borderColor: 'rgba(27, 94, 32, 0.25)',       // Darker green border
   },
   crescentInner: {
     position: 'absolute',
@@ -67,7 +81,6 @@ const styles = StyleSheet.create({
     width: 96,
     height: 96,
     borderRadius: 48,
-    backgroundColor: '#E8F5E8',
   },
   star: {
     position: 'absolute',
@@ -75,7 +88,6 @@ const styles = StyleSheet.create({
     right: 15,
     width: 16,
     height: 16,
-    backgroundColor: 'rgba(27, 94, 32, 0.3)',    // Darker green star
     transform: [{ rotate: '45deg' }],
   },
   cornerTopLeft: {
@@ -86,7 +98,6 @@ const styles = StyleSheet.create({
     height: 30,
     borderTopWidth: 2,
     borderLeftWidth: 2,
-    borderColor: 'rgba(46, 125, 50, 0.1)',
     borderTopLeftRadius: 15,
   },
   cornerBottomRight: {
@@ -97,7 +108,6 @@ const styles = StyleSheet.create({
     height: 30,
     borderBottomWidth: 2,
     borderRightWidth: 2,
-    borderColor: 'rgba(46, 125, 50, 0.1)',
     borderBottomRightRadius: 15,
   },
 });

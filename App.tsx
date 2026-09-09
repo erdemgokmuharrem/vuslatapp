@@ -6,6 +6,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { I18nextProvider } from 'react-i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { initializeLanguage } from './src/utils/initLanguage';
+import { initializeAds } from './src/services/adsService';
 import IslamicBackground from './src/components/common/IslamicBackground';
 import GlobalAudioPlayer from './src/components/common/GlobalAudioPlayer';
 import ErrorBoundary from './src/components/common/ErrorBoundary';
@@ -14,6 +15,7 @@ import logger from './src/utils/logger';
 import { RootNavigator } from './src/navigation/RootNavigator';
 import i18n from './src/i18n/i18n';
 import { useThemeStore } from './src/store/useThemeStore';
+import { isDarkTheme } from './src/styles/theme';
 import { useLanguageStore } from './src/store/useLanguageStore';
 
 export default function App() {
@@ -28,10 +30,9 @@ export default function App() {
         // Initialize language to Turkish if not set
         await initializeLanguage();
 
+        // Kayıtlı tema yoksa varsayılan olarak Islamic Green kullanılır.
         const savedTheme = await AsyncStorage.getItem('theme');
-        if (savedTheme) {
-          setTheme(savedTheme as any);
-        }
+        setTheme((savedTheme as any) || 'islamic-green');
 
         const savedLanguage = await AsyncStorage.getItem('language');
         if (savedLanguage) {
@@ -47,18 +48,9 @@ export default function App() {
     loadSettings();
   }, []);
 
-  // Varsayılan temayı Islamic Green olarak ayarla
+  // Reklam SDK'sını başlat (iOS'ta önce izleme izni sorulur).
   useEffect(() => {
-    const setIslamicTheme = async () => {
-      try {
-        setTheme('islamic-green');
-        await AsyncStorage.setItem('theme', 'islamic-green');
-      } catch (error) {
-        logger.error('Error setting Islamic theme:', error);
-      }
-    };
-
-    setIslamicTheme();
+    initializeAds();
   }, []);
 
   return (
@@ -67,7 +59,7 @@ export default function App() {
         <I18nextProvider i18n={i18n}>
           <NavigationContainer>
             <View style={styles.container}>
-              <StatusBar style={theme === 'dark' || theme === 'islamic-green' || theme === 'night-blue' ? 'light' : 'dark'} />
+              <StatusBar style={isDarkTheme(theme) ? 'light' : 'dark'} />
               <IslamicBackground>
                 <RootNavigator />
               </IslamicBackground>
