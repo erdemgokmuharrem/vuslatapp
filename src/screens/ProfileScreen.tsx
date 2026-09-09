@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  View, 
-  Text, 
-  StyleSheet, 
-  TouchableOpacity, 
-  Image,
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
   TextInput,
-  Alert,
-  ActivityIndicator,
-  ScrollView
+  ScrollView,
+  Keyboard,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -16,276 +14,214 @@ import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 
 import { RootStackParamList } from '../navigation/types';
-import { useAuthStore } from '../store/useAuthStore';
+import { useProfileStore } from '../store/useProfileStore';
 import { useThemeStore } from '../store/useThemeStore';
+import CustomHeader from '../components/common/CustomHeader';
+import IslamicBackground from '../components/common/IslamicBackground';
+import AppLogo from '../components/common/AppLogo';
 
 type ProfileScreenNavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 export const ProfileScreen = () => {
   const { t } = useTranslation();
   const navigation = useNavigation<ProfileScreenNavigationProp>();
-  const { user, isLoading, error, clearError, updateProfile, signOut } = useAuthStore();
+  const { displayName, setDisplayName } = useProfileStore();
   const { getThemeObject } = useThemeStore();
   const theme = getThemeObject();
-  
-  const [displayName, setDisplayName] = useState(user?.displayName || '');
+
+  const [draftName, setDraftName] = useState(displayName);
   const [isEditing, setIsEditing] = useState(false);
-  
-  useEffect(() => {
-    // Show error alert if there's an error
-    if (error) {
-      Alert.alert(t('error'), error, [
-        { text: t('ok'), onPress: clearError }
-      ]);
-    }
-  }, [error]);
-  
-  const handleUpdateProfile = async () => {
-    if (!displayName.trim()) {
-      Alert.alert(t('error'), t('name_required'));
-      return;
-    }
-    
-    await updateProfile(displayName, user?.photoURL || null);
+
+  const handleSave = () => {
+    setDisplayName(draftName);
     setIsEditing(false);
+    Keyboard.dismiss();
   };
-  
-  const handleSignOut = async () => {
-    Alert.alert(
-      t('sign_out'),
-      t('sign_out_confirm'),
-      [
-        { text: t('cancel'), style: 'cancel' },
-        { 
-          text: t('sign_out'), 
-          style: 'destructive',
-          onPress: async () => {
-            await signOut();
-            navigation.replace('Auth');
-          }
-        }
-      ]
-    );
+
+  const handleCancel = () => {
+    setDraftName(displayName);
+    setIsEditing(false);
+    Keyboard.dismiss();
   };
-  
-  if (!user) {
-    return (
-      <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
-        <View style={styles.header}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Ionicons name="arrow-back" size={24} color={theme.primaryColor} />
-          </TouchableOpacity>
-          <Text style={[styles.title, { color: theme.textColor }]}>{t('profile')}</Text>
-          <View style={{ width: 24 }} />
-        </View>
-        
-        <View style={styles.notSignedInContainer}>
-          <Ionicons name="person-outline" size={64} color={theme.textColor + '40'} />
-          <Text style={[styles.notSignedInText, { color: theme.textColor }]}>
-            {t('not_signed_in')}
-          </Text>
-          <TouchableOpacity
-            style={[styles.signInButton, { backgroundColor: theme.primaryColor }]}
-            onPress={() => navigation.navigate('Auth')}
-          >
-            <Text style={styles.signInButtonText}>{t('sign_in')}</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    );
-  }
-  
+
+  const shortcuts: {
+    id: string;
+    label: string;
+    icon: keyof typeof Ionicons.glyphMap;
+    screen: keyof RootStackParamList;
+  }[] = [
+    { id: 'favorites', label: t('favorites'), icon: 'heart', screen: 'Favorites' },
+    { id: 'hatim', label: t('quick_hatim'), icon: 'book', screen: 'HatimTracker' },
+    { id: 'reminders', label: t('reminders'), icon: 'notifications', screen: 'Reminders' },
+    { id: 'settings', label: t('quick_settings'), icon: 'settings', screen: 'Settings' },
+  ];
+
   return (
-    <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={24} color={theme.primaryColor} />
-        </TouchableOpacity>
-        <Text style={[styles.title, { color: theme.textColor }]}>{t('profile')}</Text>
-        {isEditing ? (
-          <TouchableOpacity onPress={handleUpdateProfile} disabled={isLoading}>
-            {isLoading ? (
-              <ActivityIndicator size="small" color={theme.primaryColor} />
-            ) : (
-              <Text style={[styles.saveButton, { color: theme.primaryColor }]}>{t('save')}</Text>
-            )}
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity onPress={() => setIsEditing(true)}>
-            <Ionicons name="create-outline" size={24} color={theme.primaryColor} />
-          </TouchableOpacity>
-        )}
-      </View>
-      
-      <ScrollView style={styles.content}>
-        <View style={styles.profileImageContainer}>
-          {user.photoURL ? (
-            <Image source={{ uri: user.photoURL }} style={styles.profileImage} />
-          ) : (
-            <View 
-              style={[
-                styles.profileImagePlaceholder, 
-                { backgroundColor: theme.primaryColor + '30' }
-              ]}
-            >
-              <Text 
-                style={[
-                  styles.profileImagePlaceholderText, 
-                  { color: theme.primaryColor }
-                ]}
-              >
-                {displayName.charAt(0).toUpperCase()}
-              </Text>
-            </View>
-          )}
-        </View>
-        
-        <View style={styles.infoSection}>
-          <Text style={[styles.infoLabel, { color: theme.textColor + '99' }]}>
-            {t('display_name')}
-          </Text>
-          {isEditing ? (
-            <TextInput
-              style={[
-                styles.infoInput, 
-                { 
-                  color: theme.textColor,
-                  borderColor: theme.textColor + '30',
-                  backgroundColor: theme.cardBackgroundColor,
-                }
-              ]}
-              value={displayName}
-              onChangeText={setDisplayName}
-              placeholder={t('name_placeholder')}
-              placeholderTextColor={theme.textColor + '80'}
-            />
-          ) : (
-            <Text style={[styles.infoValue, { color: theme.textColor }]}>
-              {user.displayName || t('no_name')}
-            </Text>
-          )}
-        </View>
-        
-        <View style={styles.infoSection}>
-          <Text style={[styles.infoLabel, { color: theme.textColor + '99' }]}>
-            {t('email')}
-          </Text>
-          <Text style={[styles.infoValue, { color: theme.textColor }]}>
-            {user.email}
-          </Text>
-        </View>
-        
-        <TouchableOpacity
-          style={[styles.signOutButton, { borderColor: theme.primaryColor }]}
-          onPress={handleSignOut}
+    <IslamicBackground>
+      <View style={styles.container}>
+        <CustomHeader title={t('profile')} transparent />
+
+        <ScrollView
+          contentContainerStyle={styles.content}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
         >
-          <Text style={[styles.signOutButtonText, { color: theme.primaryColor }]}>
-            {t('sign_out')}
+          <View style={styles.logoArea}>
+            <AppLogo size={96} />
+          </View>
+
+          <View style={[styles.card, { backgroundColor: theme.cardBackgroundColor }]}>
+            <Text style={[styles.label, { color: theme.textColor + '99' }]}>
+              {t('display_name')}
+            </Text>
+
+            {isEditing ? (
+              <>
+                <TextInput
+                  style={[
+                    styles.input,
+                    {
+                      color: theme.textColor,
+                      borderColor: theme.borderColor,
+                      backgroundColor: theme.backgroundColor,
+                    },
+                  ]}
+                  value={draftName}
+                  onChangeText={setDraftName}
+                  placeholder={t('name_placeholder')}
+                  placeholderTextColor={theme.textColor + '66'}
+                  autoFocus
+                  maxLength={40}
+                  returnKeyType="done"
+                  onSubmitEditing={handleSave}
+                />
+                <View style={styles.editActions}>
+                  <TouchableOpacity
+                    style={[styles.secondaryButton, { borderColor: theme.borderColor }]}
+                    onPress={handleCancel}
+                  >
+                    <Text style={[styles.secondaryButtonText, { color: theme.textColor }]}>
+                      {t('cancel')}
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={[styles.primaryButton, { backgroundColor: theme.primaryColor }]}
+                    onPress={handleSave}
+                  >
+                    <Text style={styles.primaryButtonText}>{t('save')}</Text>
+                  </TouchableOpacity>
+                </View>
+              </>
+            ) : (
+              <TouchableOpacity
+                style={styles.nameRow}
+                onPress={() => setIsEditing(true)}
+                activeOpacity={0.7}
+              >
+                <Text style={[styles.name, { color: theme.textColor }]} numberOfLines={1}>
+                  {displayName || t('no_name')}
+                </Text>
+                <Ionicons name="pencil" size={18} color={theme.primaryColor} />
+              </TouchableOpacity>
+            )}
+          </View>
+
+          <Text style={[styles.hint, { color: theme.textColor + '80' }]}>
+            {t('profile_local_only')}
           </Text>
-        </TouchableOpacity>
-      </ScrollView>
-    </View>
+
+          <View style={[styles.card, { backgroundColor: theme.cardBackgroundColor }]}>
+            {shortcuts.map((item, index) => (
+              <TouchableOpacity
+                key={item.id}
+                style={[
+                  styles.shortcutRow,
+                  index < shortcuts.length - 1 && {
+                    borderBottomWidth: StyleSheet.hairlineWidth,
+                    borderBottomColor: theme.borderColor,
+                  },
+                ]}
+                onPress={() => navigation.navigate(item.screen as any)}
+                activeOpacity={0.7}
+              >
+                <View
+                  style={[
+                    styles.shortcutIcon,
+                    { backgroundColor: theme.primaryColor + '18' },
+                  ]}
+                >
+                  <Ionicons name={item.icon} size={20} color={theme.primaryColor} />
+                </View>
+                <Text style={[styles.shortcutLabel, { color: theme.textColor }]}>
+                  {item.label}
+                </Text>
+                <Ionicons name="chevron-forward" size={18} color={theme.textColor + '55'} />
+              </TouchableOpacity>
+            ))}
+          </View>
+
+          <View style={{ height: 60 }} />
+        </ScrollView>
+      </View>
+    </IslamicBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  container: { flex: 1 },
+  content: { padding: 16, paddingTop: 8 },
+  logoArea: { alignItems: 'center', marginBottom: 24, marginTop: 8 },
+  card: {
+    borderRadius: 20,
+    padding: 16,
+    marginBottom: 12,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
   },
-  header: {
+  label: { fontSize: 13, fontWeight: '600', marginBottom: 8 },
+  nameRow: {
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingTop: 50,
-    paddingBottom: 8,
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  saveButton: {
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  content: {
-    flex: 1,
-    padding: 16,
-  },
-  profileImageContainer: {
-    alignItems: 'center',
-    marginVertical: 24,
-  },
-  profileImage: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-  },
-  profileImagePlaceholder: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  profileImagePlaceholderText: {
-    fontSize: 48,
-    fontWeight: 'bold',
-  },
-  infoSection: {
-    marginBottom: 24,
-  },
-  infoLabel: {
-    fontSize: 14,
-    marginBottom: 8,
-  },
-  infoValue: {
-    fontSize: 16,
-    fontWeight: '500',
-  },
-  infoInput: {
-    height: 48,
+  name: { flex: 1, fontSize: 20, fontWeight: '700', marginRight: 12 },
+  input: {
     borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 12,
+    borderRadius: 12,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
     fontSize: 16,
   },
-  signOutButton: {
-    height: 56,
-    borderRadius: 28,
+  editActions: { flexDirection: 'row', justifyContent: 'flex-end', marginTop: 12 },
+  secondaryButton: {
+    paddingHorizontal: 18,
+    paddingVertical: 10,
+    borderRadius: 12,
+    borderWidth: 1,
+    marginRight: 8,
+  },
+  secondaryButtonText: { fontSize: 15, fontWeight: '600' },
+  primaryButton: { paddingHorizontal: 22, paddingVertical: 10, borderRadius: 12 },
+  primaryButtonText: { color: '#FFFFFF', fontSize: 15, fontWeight: '700' },
+  hint: {
+    fontSize: 12,
+    lineHeight: 17,
+    marginBottom: 20,
+    marginHorizontal: 4,
+  },
+  shortcutRow: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14 },
+  shortcutIcon: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 2,
-    marginTop: 16,
+    marginRight: 14,
   },
-  signOutButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  notSignedInContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 16,
-  },
-  notSignedInText: {
-    fontSize: 16,
-    marginVertical: 16,
-    textAlign: 'center',
-  },
-  signInButton: {
-    height: 56,
-    borderRadius: 28,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 32,
-    marginTop: 16,
-  },
-  signInButtonText: {
-    color: 'white',
-    fontSize: 16,
-    fontWeight: '600',
-  },
+  shortcutLabel: { flex: 1, fontSize: 16, fontWeight: '500' },
 });
 
 export default ProfileScreen;

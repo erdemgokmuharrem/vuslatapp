@@ -14,10 +14,6 @@ import RemindersScreen from '../screens/RemindersScreen';
 import AddReminderScreen from '../screens/AddReminderScreen';
 import FeedScreen from '../screens/FeedScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
-import AuthScreen from '../screens/AuthScreen';
-import SignInScreen from '../screens/SignInScreen';
-import SignUpScreen from '../screens/SignUpScreen';
-import ForgotPasswordScreen from '../screens/ForgotPasswordScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import QiblaScreen from '../screens/QiblaScreen';
 import SettingsScreen from '../screens/SettingsScreen';
@@ -97,22 +93,6 @@ export const RootNavigator = () => {
       <Stack.Screen
         name="Favorites"
         component={FavoritesScreen}
-      />
-      <Stack.Screen
-        name="Auth"
-        component={AuthScreen}
-      />
-      <Stack.Screen
-        name="SignIn"
-        component={SignInScreen}
-      />
-      <Stack.Screen
-        name="SignUp"
-        component={SignUpScreen}
-      />
-      <Stack.Screen
-        name="ForgotPassword"
-        component={ForgotPasswordScreen}
       />
       <Stack.Screen
         name="Profile"

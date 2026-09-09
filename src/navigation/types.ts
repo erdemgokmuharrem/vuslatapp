@@ -25,10 +25,6 @@ export type RootStackParamList = {
   AddReminder: undefined;
   AyahHadithFeed: { filter?: string };
   Favorites: undefined;
-  Auth: undefined;
-  SignIn: undefined;
-  SignUp: undefined;
-  ForgotPassword: undefined;
   Profile: undefined;
   Qibla: undefined;
   HatimTracker: undefined;
