@@ -59,7 +59,7 @@ export const SalawatGuideScreen = () => {
 
   const handleShare = async (salawat: Salawat) => {
     try {
-      const shareText = `🌙 ${salawat.nameTr}\n\n${salawat.arabic}\n\n${salawat.transliterationTr}\n\n${salawat.translationTr}\n\n📖 Faydası: ${salawat.benefitsTr}\n\n#ZmatikApp`;
+      const shareText = `🌙 ${salawat.nameTr}\n\n${salawat.arabic}\n\n${salawat.transliterationTr}\n\n${salawat.translationTr}\n\n📖 Faydası: ${salawat.benefitsTr}\n\n#VuslatApp`;
       
       await Share.share({
         message: shareText,

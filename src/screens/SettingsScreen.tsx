@@ -144,7 +144,7 @@ export const SettingsScreen = () => {
             <View style={[styles.settingItem, { backgroundColor: themeObj.cardBackgroundColor }]}>
               <Ionicons name="information-circle" size={24} color={themeObj.primaryColor} />
               <View style={styles.settingTextContainer}>
-                <Text style={[styles.settingTitle, { color: themeObj.textColor }]}>{s('app_name', 'Zmatik')}</Text>
+                <Text style={[styles.settingTitle, { color: themeObj.textColor }]}>{s('app_name', 'Vuslat')}</Text>
                 <Text style={[styles.settingSubtitle, { color: themeObj.textColor + '80' }]}>{s('app_tagline', 'İslami Uygulama')}</Text>
               </View>
             </View>

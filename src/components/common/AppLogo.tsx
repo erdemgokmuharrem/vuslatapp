@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import { useThemeStore } from '../../store/useThemeStore';
 
 interface AppLogoProps {
@@ -9,6 +10,7 @@ interface AppLogoProps {
 }
 
 export const AppLogo: React.FC<AppLogoProps> = ({ size = 60, showText = true }) => {
+  const { t } = useTranslation();
   const { getThemeObject } = useThemeStore();
   const theme = getThemeObject();
   
@@ -33,7 +35,7 @@ export const AppLogo: React.FC<AppLogoProps> = ({ size = 60, showText = true }) 
       
       {showText && (
         <Text style={[styles.appName, { color: theme.primaryColor, fontSize: size / 3 }]}>
-          Zmatik
+          {t('app_name')}
         </Text>
       )}
     </View>

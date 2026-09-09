@@ -32,7 +32,7 @@ export const DailyAyahScreen = () => {
     if (!currentAyah) return;
     try {
       await Share.share({
-        message: `🌙 ${t('daily_ayah_title')}\n\n${currentAyah.arabic}\n\n${currentAyah.turkish}\n\n📖 ${currentAyah.surah} ${currentAyah.ayahNumber}\n\n#ZmatikApp`,
+        message: `🌙 ${t('daily_ayah_title')}\n\n${currentAyah.arabic}\n\n${currentAyah.turkish}\n\n📖 ${currentAyah.surah} ${currentAyah.ayahNumber}\n\n#VuslatApp`,
       });
     } catch {}
   };

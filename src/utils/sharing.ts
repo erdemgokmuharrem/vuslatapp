@@ -48,7 +48,7 @@ class SharingManager {
     }
 
     // Add app signature
-    formattedText += '🕌 Zmatik - İslami Uygulama ile paylaşıldı';
+    formattedText += '🕌 Vuslat - İslami Uygulama ile paylaşıldı';
 
     return formattedText;
   }
@@ -160,7 +160,7 @@ class SharingManager {
         message += `\n\n📖 ${reference}`;
       }
       
-      message += '\n\n🕌 Zmatik - İslami Uygulama ile paylaşıldı';
+      message += '\n\n🕌 Vuslat - İslami Uygulama ile paylaşıldı';
       
       const result = await Share.share({
         message,
@@ -178,7 +178,7 @@ class SharingManager {
   // Share app
   async shareApp(): Promise<boolean> {
     try {
-      const message = `🕌 Zmatik - İslami Uygulama
+      const message = `🕌 Vuslat - İslami Uygulama
 
 Namaz vakitleri, Kuran okuma, tesbih, dua ve daha fazlası için mükemmel bir İslami uygulama!
 
@@ -186,7 +186,7 @@ Namaz vakitleri, Kuran okuma, tesbih, dua ve daha fazlası için mükemmel bir �
 
       const result = await Share.share({
         message,
-        title: 'Zmatik - İslami Uygulama',
+        title: 'Vuslat - İslami Uygulama',
       });
 
       return result.action === Share.sharedAction;

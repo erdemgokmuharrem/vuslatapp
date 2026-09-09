@@ -72,7 +72,7 @@ export const PrayerTurkishScreen = () => {
 
   const handleShare = async (dua: PrayerDua) => {
     try {
-      const shareText = `🕌 ${dua.nameTr}\n\n${dua.arabic}\n\n${dua.transliterationTr}\n\n${dua.translationTr}\n\n📍 ${dua.positionTr}\n⏰ ${dua.whenTr}\n\n#ZmatikApp`;
+      const shareText = `🕌 ${dua.nameTr}\n\n${dua.arabic}\n\n${dua.transliterationTr}\n\n${dua.translationTr}\n\n📍 ${dua.positionTr}\n⏰ ${dua.whenTr}\n\n#VuslatApp`;
       
       await Share.share({
         message: shareText,

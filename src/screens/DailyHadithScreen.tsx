@@ -32,7 +32,7 @@ export const DailyHadithScreen = () => {
     if (!currentHadith) return;
     try {
       await Share.share({
-        message: `🌙 ${t('daily_hadith_title')}\n\n${currentHadith.arabic}\n\n${currentHadith.turkish}\n\n📖 ${t('narrator_label')}: ${currentHadith.narrator}\n📚 ${t('source_label')}: ${currentHadith.source}\n\n#ZmatikApp`,
+        message: `🌙 ${t('daily_hadith_title')}\n\n${currentHadith.arabic}\n\n${currentHadith.turkish}\n\n📖 ${t('narrator_label')}: ${currentHadith.narrator}\n📚 ${t('source_label')}: ${currentHadith.source}\n\n#VuslatApp`,
       });
     } catch {}
   };
