@@ -1,10 +1,8 @@
-module.exports = function(api) {
+module.exports = function (api) {
   api.cache(true);
   return {
     presets: ['babel-preset-expo'],
-    plugins: [
-      ['nativewind/babel', { mode: 'compileOnly' }],
-      'react-native-reanimated/plugin'
-    ],
+    // react-native-worklets/plugin, reanimated'ın v4'teki yeni adı.
+    plugins: ['react-native-worklets/plugin'],
   };
 };
