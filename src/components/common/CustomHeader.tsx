@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Platform, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useNavigationState } from '@react-navigation/native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useThemeStore } from '../../store/useThemeStore';
+import { useTranslation } from 'react-i18next';
 
 interface HeaderAction {
     icon: keyof typeof Ionicons.glyphMap;
@@ -23,7 +24,7 @@ interface CustomHeaderProps {
 
 const CustomHeader: React.FC<CustomHeaderProps> = ({
     title,
-    showBackButton = false,
+    showBackButton,
     onBackPress,
     rightActions = [],
     transparent = false,
@@ -31,6 +32,12 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({
     subtitle,
 }) => {
     const navigation = useNavigation();
+    const { t } = useTranslation();
+    // Yığına (stack) itilmiş ekranlarda geri butonu varsayılan olarak görünür;
+    // sekme kök ekranlarında geri gidilecek yer olmadığı için görünmez.
+    // Açıkça verilen showBackButton her zaman önceliklidir.
+    const canPop = useNavigationState((state) => state.type === 'stack' && state.index > 0);
+    const shouldShowBack = showBackButton ?? canPop;
     const { getThemeObject } = useThemeStore();
     const theme = getThemeObject();
     const insets = useSafeAreaInsets();
@@ -58,11 +65,13 @@ const CustomHeader: React.FC<CustomHeaderProps> = ({
             <View style={styles.content}>
                 {/* Left Section - Back Button */}
                 <View style={styles.leftSection}>
-                    {showBackButton && (
+                    {shouldShowBack && (
                         <TouchableOpacity
                             style={[styles.backButton, { backgroundColor: theme.primaryColor + '15' }]}
                             onPress={handleBackPress}
                             hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                            accessibilityRole="button"
+                            accessibilityLabel={t('back')}
                         >
                             <Ionicons name="chevron-back" size={24} color={theme.primaryColor} />
                         </TouchableOpacity>

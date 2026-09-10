@@ -23,7 +23,6 @@ const IslamicBackground: React.FC<IslamicBackgroundProps> = ({ children }) => {
   const decorFill = dark ? 'rgba(255, 255, 255, 0.10)' : 'rgba(27, 94, 32, 0.15)';
   const decorBorder = dark ? 'rgba(255, 255, 255, 0.18)' : 'rgba(27, 94, 32, 0.25)';
   const decorAccent = dark ? 'rgba(255, 255, 255, 0.22)' : 'rgba(27, 94, 32, 0.3)';
-  const cornerColor = dark ? 'rgba(255, 255, 255, 0.12)' : 'rgba(46, 125, 50, 0.1)';
 
   return (
     <View style={styles.container}>
@@ -37,10 +36,6 @@ const IslamicBackground: React.FC<IslamicBackgroundProps> = ({ children }) => {
         {/* Small star */}
         <View style={[styles.star, { backgroundColor: decorAccent }]} />
       </View>
-
-      {/* Decorative corner elements */}
-      <View style={[styles.cornerTopLeft, { borderColor: cornerColor }]} />
-      <View style={[styles.cornerBottomRight, { borderColor: cornerColor }]} />
 
       {children}
     </View>
@@ -89,26 +84,6 @@ const styles = StyleSheet.create({
     width: 16,
     height: 16,
     transform: [{ rotate: '45deg' }],
-  },
-  cornerTopLeft: {
-    position: 'absolute',
-    top: 80,
-    left: 20,
-    width: 30,
-    height: 30,
-    borderTopWidth: 2,
-    borderLeftWidth: 2,
-    borderTopLeftRadius: 15,
-  },
-  cornerBottomRight: {
-    position: 'absolute',
-    bottom: 100,
-    right: 20,
-    width: 30,
-    height: 30,
-    borderBottomWidth: 2,
-    borderRightWidth: 2,
-    borderBottomRightRadius: 15,
   },
 });
 

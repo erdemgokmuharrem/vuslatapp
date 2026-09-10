@@ -163,6 +163,14 @@ export const FeedScreen = () => {
     <IslamicBackground>
       <View style={[styles.container, { backgroundColor: 'transparent' }]}>
         <View style={styles.header}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+          accessibilityRole="button"
+          accessibilityLabel={t('back')}
+        >
+          <Ionicons name="chevron-back" size={24} color={theme.primaryColor} />
+        </TouchableOpacity>
         <Text style={[styles.title, { color: theme.textColor }]}>{t('feed')}</Text>
         <TouchableOpacity onPress={() => navigation.navigate('Favorites')}>
           <Ionicons name="heart" size={24} color={theme.primaryColor} />
