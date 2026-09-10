@@ -27,7 +27,8 @@
           "audio"
         ],
         "NSLocationAlwaysUsageDescription": "Namaz vakitlerini ve kıble yönünü bulunduğunuz yere göre hesaplamak, ayrıca yakınınızdaki cami ve türbeleri göstermek için konumunuza erişmek istiyoruz.",
-        "NSMotionUsageDescription": "Kıble pusulasının yönü doğru göstermesi için cihazınızın hareket ve pusula sensörlerine erişmesi gerekir."
+        "NSMotionUsageDescription": "Kıble pusulasının yönü doğru göstermesi için cihazınızın hareket ve pusula sensörlerine erişmesi gerekir.",
+        "NSUserNotificationsUsageDescription": "Bu uygulama namaz vakitleri ve günlük hatırlatmalar için bildirim gönderir."
       }
     },
     "android": {
