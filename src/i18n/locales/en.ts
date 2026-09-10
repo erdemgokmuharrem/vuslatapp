@@ -364,4 +364,5 @@ export default {
   day_initial_5: 'F',
   day_short_6: 'Sat',
   day_initial_6: 'S',
+  last_updated: 'Last updated',
 };

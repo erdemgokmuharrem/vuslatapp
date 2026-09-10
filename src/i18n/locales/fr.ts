@@ -358,4 +358,5 @@ export default {
   day_initial_5: 'V',
   day_short_6: 'Sam',
   day_initial_6: 'S',
+  last_updated: 'Dernière mise à jour',
 };

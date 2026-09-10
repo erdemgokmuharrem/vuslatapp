@@ -8,6 +8,7 @@ import {
   Alert
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import CustomHeader from '../components/common/CustomHeader';
 import { useNavigation } from '@react-navigation/native';
 import * as Location from 'expo-location';
 
@@ -80,13 +81,7 @@ export const PrayerSettingsScreen = () => {
   
   return (
     <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Text style={[styles.backButton, { color: theme.primaryColor }]}>{t('back')}</Text>
-        </TouchableOpacity>
-        <Text style={[styles.title, { color: theme.textColor }]}>{t('prayer_calculation_method')}</Text>
-        <View style={{ width: 50 }} />
-      </View>
+      <CustomHeader title={t('prayer_calculation_method')} />
       
       <ScrollView style={styles.content}>
         <View style={[styles.sectionCard, { backgroundColor: theme.cardBackgroundColor }]}>
@@ -151,22 +146,6 @@ export const PrayerSettingsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingTop: 50,
-    paddingBottom: 8,
-  },
-  backButton: {
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
   },
   content: {
     flex: 1,

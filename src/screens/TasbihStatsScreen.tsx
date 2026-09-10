@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
+import CustomHeader from '../components/common/CustomHeader';
 
 import { useTasbihStore } from '../store/useTasbihStore';
 import { useThemeStore } from '../store/useThemeStore';
@@ -18,17 +19,11 @@ export const TasbihStatsScreen = () => {
   
   return (
     <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Text style={[styles.backButton, { color: theme.primaryColor }]}>{t('back')}</Text>
-        </TouchableOpacity>
-        <Text style={[styles.title, { color: theme.textColor }]}>{t('tasbih_stats')}</Text>
-        <View style={{ width: 50 }} />
-      </View>
+      <CustomHeader title={t('tasbih_stats')} />
       
       <ScrollView style={styles.content}>
         <Text style={[styles.lastUpdated, { color: theme.textColor }]}>
-          Last updated: {formattedDate}
+          {t('last_updated')}: {formattedDate}
         </Text>
         
         <View style={[styles.statCard, { backgroundColor: theme.cardBackgroundColor }]}>
@@ -60,22 +55,6 @@ export const TasbihStatsScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingTop: 50,
-    paddingBottom: 8,
-  },
-  backButton: {
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
   },
   content: {
     flex: 1,

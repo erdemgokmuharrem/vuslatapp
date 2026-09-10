@@ -366,4 +366,5 @@ export default {
   day_initial_5: 'Cu',
   day_short_6: 'Cmt',
   day_initial_6: 'Ct',
+  last_updated: 'Son güncelleme',
 };

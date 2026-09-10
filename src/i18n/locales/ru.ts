@@ -358,4 +358,5 @@ export default {
   day_initial_5: 'Пт',
   day_short_6: 'Сб',
   day_initial_6: 'Сб',
+  last_updated: 'Последнее обновление',
 };
