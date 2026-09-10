@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import {
+  AppState,
   View, Text, StyleSheet, TouchableOpacity, ActivityIndicator,
   ScrollView, Switch, RefreshControl
 } from 'react-native';
@@ -37,11 +38,29 @@ export const PrayerTimesScreen = () => {
   const hijriToday = toHijri(new Date());
   const { daysLeft, inRamadan } = getDaysToRamadan();
 
-  useEffect(() => {
+  // Vakitler ekran açıldığında bir kez çekiliyordu; sekme ekranları bağlı kaldığı
+  // ve iOS uygulamayı bellekte tuttuğu için ertesi gün de eski vakitler görünürdü.
+  // Gün değişince ya da uygulama öne gelince yeniden çekilir (önbellek güne göre).
+  const fetchedDayRef = useRef(new Date().toDateString());
+  const refreshForToday = () => {
+    fetchedDayRef.current = new Date().toDateString();
     fetchPrayerTimesForToday();
-    const intervalId = setInterval(() => { updateNextPrayer(); }, 60000);
     setUpcomingDays(getUpcomingReligiousDays());
-    return () => clearInterval(intervalId);
+  };
+
+  useEffect(() => {
+    refreshForToday();
+    const intervalId = setInterval(() => {
+      if (new Date().toDateString() !== fetchedDayRef.current) refreshForToday();
+      else updateNextPrayer();
+    }, 60000);
+    const subscription = AppState.addEventListener('change', (state) => {
+      if (state === 'active') refreshForToday();
+    });
+    return () => {
+      clearInterval(intervalId);
+      subscription.remove();
+    };
   }, []);
 
   const handleRefresh = async () => {

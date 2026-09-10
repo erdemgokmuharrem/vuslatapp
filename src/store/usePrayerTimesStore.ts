@@ -40,7 +40,7 @@ export const usePrayerTimesStore = create<PrayerTimesState>()(
     (set, get) => ({
       prayerTimes: null,
       location: null,
-      calculationMethod: 1, // Default to MWL method
+      calculationMethod: 13, // Diyanet İşleri Başkanlığı (Aladhan method id)
       autoSilentMode: false,
       nextPrayer: null,
       timeUntilNextPrayer: '',

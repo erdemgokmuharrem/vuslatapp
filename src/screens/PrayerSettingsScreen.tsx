@@ -15,13 +15,14 @@ import * as Location from 'expo-location';
 import { usePrayerTimesStore } from '../store/usePrayerTimesStore';
 import { useThemeStore } from '../store/useThemeStore';
 
-// Calculation methods
+// Calculation methods. The ids are Aladhan's method ids and are sent to the API
+// unchanged, so each id must match Aladhan's numbering (api.aladhan.com/v1/methods).
 const CALCULATION_METHODS = [
-  { id: 1, name: 'Muslim World League' },
+  { id: 3, name: 'Muslim World League' },
   { id: 2, name: 'Islamic Society of North America (ISNA)' },
-  { id: 3, name: 'Egyptian General Authority of Survey' },
+  { id: 5, name: 'Egyptian General Authority of Survey' },
   { id: 4, name: 'Umm Al-Qura University, Makkah' },
-  { id: 5, name: 'University of Islamic Sciences, Karachi' },
+  { id: 1, name: 'University of Islamic Sciences, Karachi' },
   { id: 7, name: 'Institute of Geophysics, University of Tehran' },
   { id: 8, name: 'Gulf Region' },
   { id: 9, name: 'Kuwait' },

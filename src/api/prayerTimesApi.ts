@@ -69,8 +69,8 @@ export interface LocationData {
   country?: string;
 }
 
-// Default calculation method (1 = MWL)
-const DEFAULT_METHOD = 1;
+// Default calculation method: 13 = Diyanet İşleri Başkanlığı (Aladhan method id)
+const DEFAULT_METHOD = 13;
 
 // Cache keys
 const PRAYER_TIMES_CACHE_KEY = 'prayer_times_cache';
