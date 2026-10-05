@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuslat - İslami Yaşam & Zikirmatik Rehberi</title>
+    <meta name="description" content="Vuslat, günlük ibadetlerinizi, zikirlerinizi ve namaz vakitlerinizi kolayca takip etmenizi sağlayan modern ve huzur dolu bir mobil uygulamadır.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #123923;
+            --primary-light: #1b5e20;
+            --accent: #d4af37;
+            --bg-dark: #0a1f14;
+            --text-main: #f5fbf7;
+            --text-muted: #a3c2b1;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-border: rgba(212, 175, 55, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(circle at 50% 0%, #174a2f 0%, var(--bg-dark) 75%);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 2.5rem 1.5rem 1rem;
+            text-align: center;
+        }
+
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 18px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 999px;
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 40%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .lead {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 620px;
+            margin: 0 auto 2.5rem;
+            padding: 0 1rem;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 3.5rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            padding: 1.8rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .support-section {
+            background: rgba(18, 57, 35, 0.4);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .support-section h2 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .support-section p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-contact {
+            display: inline-block;
+            background: var(--accent);
+            color: #0b1a10;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .btn-contact:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.8rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.1rem; }
+            .features-grid { grid-template-columns: 1fr; }
+            .support-section { padding: 1.8rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-badge">🌙 Vuslat Mobil Uygulaması</div>
+        <h1>Huzur Dolu İbadet ve Zikir Rehberi</h1>
+        <p class="lead">Zikirlerinizi hissederek çekin, kıble yönünüzü hassas pusula ile saniyeler içinde belirleyin ve namaz vakitlerini anlık takip edin.</p>
+    </header>
+
+    <main class="container">
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">📿</span>
+                <h3>Gelişmiş Zikirmatik</h3>
+                <p>Gerçekçi dokunsal titreşim geri bildirimi, ses efektleri ve zengin zikir kütüphanesiyle ibadetlerinizi kaydedin.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🧭</span>
+                <h3>Hassas Kıble Pusulası</h3>
+                <p>Cihaz sensörlerini kullanarak nerede olursanız olun Kabe yönünü ve açısını doğru bir şekilde gösterir.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">⏰</span>
+                <h3>Doğru Namaz Vakitleri</h3>
+                <p>Konumunuza en uygun namaz vakitlerini ve bir sonraki vakte kalan süreyi net bir geri sayım ile sunar.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">✨</span>
+                <h3>Esmaül Hüsna & Dualar</h3>
+                <p>Allah'ın 99 ismi, anlamları, faziletleri ve günlük okunacak seçkin dualar her an elinizin altında.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🕌</span>
+                <h3>Yakındaki Camiler</h3>
+                <p>Bulunduğunuz konuma en yakın cami ve türbeleri harita üzerinden anında keşfedin ve yol tarifi alın.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔒</span>
+                <h3>Gizlilik ve Çevrimdışı Kullanım</h3>
+                <p>Kişisel verileriniz asla sunucularda saklanmaz. Tüm zikirleriniz ve kayıtlarınız güvenle cihazınızda tutulur.</p>
+            </div>
+        </div>
+
+        <section class="support-section">
+            <h2>Geri Bildirim & Destek</h2>
+            <p>Uygulamamızla ilgili soru, öneri, hata bildirimi veya telif hakkı bildirimleri için geliştirici ekibimizle iletişime geçebilirsiniz.</p>
+            <a href="mailto:erdemmgokmuharrem@gmail.com" class="btn-contact">Bize E-posta Gönderin</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="./privacy_policy.html">Gizlilik Politikası (Privacy Policy)</a>
+            <a href="./app-ads.txt">app-ads.txt</a>
+            <a href="mailto:erdemmgokmuharrem@gmail.com">Destek / İletişim</a>
+        </div>
+        <p>&copy; 2026 Vuslat App. Tüm hakları saklıdır.</p>
+    </footer>
+
+</body>
+</html>
