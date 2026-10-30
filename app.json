@@ -44,7 +44,11 @@
         "RECEIVE_BOOT_COMPLETED",
         "VIBRATE",
         "WAKE_LOCK",
-        "FOREGROUND_SERVICE"
+        "FOREGROUND_SERVICE",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "com.google.android.gms.permission.AD_ID"
       ],
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
@@ -85,6 +89,12 @@
     "notification": {
       "icon": "./assets/notification-icon.png",
       "color": "#3d8c47"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5ec06091-6aee-4f3d-a8e0-a03e6432f222"
+      }
+    },
+    "owner": "gmovirtue"
   }
 }
